@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Apple Inc. All rights reserved.
+ * Copyright (C) 2022 Apple Inc. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -27,48 +27,10 @@
 
 #if USE(LIBWEBRTC)
 
-#include "RTCNetwork.h"
-#include <WebCore/LibWebRTCMacros.h>
-#include <webrtc/rtc_base/thread.h>
-#include <wtf/WeakPtr.h>
-
 ALLOW_COMMA_BEGIN
 
-#include <webrtc/rtc_base/network.h>
+#include <webrtc/sdk/WebKit/WebKitEncoder.h>
 
 ALLOW_COMMA_END
-
-
-namespace IPC {
-class Connection;
-class Decoder;
-}
-
-namespace WebKit {
-
-class NetworkRTCProvider;
-
-class NetworkRTCMonitor final : public CanMakeWeakPtr<NetworkRTCMonitor> {
-public:
-    explicit NetworkRTCMonitor(NetworkRTCProvider& rtcProvider) : m_rtcProvider(rtcProvider) { }
-    ~NetworkRTCMonitor();
-
-    void didReceiveMessage(IPC::Connection&, IPC::Decoder&);
-    void stopUpdating();
-    bool isStarted() const { return m_isStarted; }
-    NetworkRTCProvider& rtcProvider() { return m_rtcProvider; }
-
-    void onNetworksChanged(const Vector<RTCNetwork>&, const Vector<RTCNetwork>&, const RTCNetwork::IPAddress&, const RTCNetwork::IPAddress&);
-
-private:
-    void startUpdatingIfNeeded(bool);
-
-    NetworkRTCProvider& m_rtcProvider;
-    std::unique_ptr<rtc::BasicNetworkManager> m_manager;
-    bool m_isStarted { false };
-    bool m_enableEnumeratingAllNetworkInterfaces { false };
-};
-
-} // namespace WebKit
 
 #endif // USE(LIBWEBRTC)

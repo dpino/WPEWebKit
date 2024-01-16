@@ -971,6 +971,7 @@ def headers_for_type(type):
         'WebKit::WebGPU::VertexAttribute': ['"WebGPUVertexAttribute.h"'],
         'WebKit::WebGPU::VertexBufferLayout': ['"WebGPUVertexBufferLayout.h"'],
         'WebKit::WebGPU::VertexState': ['"WebGPUVertexState.h"'],
+<<<<<<< HEAD
         'struct WebCore::Cookie': ['<WebCore/Cookie.h>'],
         'struct WebCore::ElementContext': ['<WebCore/ElementContext.h>'],
         'struct WebCore::VideoPlaybackQualityMetrics': ['<WebCore/VideoPlaybackQualityMetrics.h>'],
@@ -978,6 +979,23 @@ def headers_for_type(type):
         'struct WebKit::WebUserScriptData': ['"WebUserContentControllerDataTypes.h"'],
         'struct WebKit::WebUserStyleSheetData': ['"WebUserContentControllerDataTypes.h"'],
         'webrtc::WebKitEncodedFrameInfo': ['<webrtc/sdk/WebKit/WebKitEncoder.h>', '<WebCore/LibWebRTCEnumTraits.h>'],
+||||||| constructed merge base
+        'WebCore::Cookie': ['<WebCore/Cookie.h>'],
+        'WebCore::ElementContext': ['<WebCore/ElementContext.h>'],
+        'WebCore::VideoPlaybackQualityMetrics': ['<WebCore/VideoPlaybackQualityMetrics.h>'],
+        'WebKit::WebScriptMessageHandlerData': ['"WebUserContentControllerDataTypes.h"'],
+        'WebKit::WebUserScriptData': ['"WebUserContentControllerDataTypes.h"'],
+        'WebKit::WebUserStyleSheetData': ['"WebUserContentControllerDataTypes.h"'],
+        'webrtc::WebKitEncodedFrameInfo': ['<webrtc/sdk/WebKit/WebKitEncoder.h>', '<WebCore/LibWebRTCEnumTraits.h>'],
+=======
+        'WebCore::Cookie': ['<WebCore/Cookie.h>'],
+        'WebCore::ElementContext': ['<WebCore/ElementContext.h>'],
+        'WebCore::VideoPlaybackQualityMetrics': ['<WebCore/VideoPlaybackQualityMetrics.h>'],
+        'WebKit::WebScriptMessageHandlerData': ['"WebUserContentControllerDataTypes.h"'],
+        'WebKit::WebUserScriptData': ['"WebUserContentControllerDataTypes.h"'],
+        'WebKit::WebUserStyleSheetData': ['"WebUserContentControllerDataTypes.h"'],
+        'webrtc::WebKitEncodedFrameInfo': ['"RTCWebKitEncodedFrameInfo.h"', '<WebCore/LibWebRTCEnumTraits.h>'],
+>>>>>>> Rebase libwebrtc to M106 (other files)
     }
 
     headers = []
