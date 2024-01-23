@@ -2532,22 +2532,10 @@ void ARGBToAB64Row_NEON(const uint8_t* src_argb,
       "vst2.8      {q0, q1}, [%1]!               \n"  // store 4 pixels
       "vst2.8      {q2, q3}, [%1]!               \n"  // store 4 pixels
       "bgt         1b                            \n"
-<<<<<<< ours
-      : "+r"(src_argb),          // %0
-        "+r"(dst_ab64),          // %1
-        "+r"(width)              // %2
-      : "r"(&kShuffleARGBToABGR) // %3
-||||||| base
-      : "+r"(src_argb),          // %0
-        "+r"(dst_ab64),          // %1
-        "+r"(width)              // %2
-      : "m"(kShuffleARGBToABGR)  // %3
-=======
       : "+r"(src_argb),           // %0
         "+r"(dst_ab64),           // %1
         "+r"(width)               // %2
       : "r"(&kShuffleARGBToABGR)  // %3
->>>>>>> theirs
       : "cc", "memory", "q0", "q1", "q2", "q3", "q4");
 }
 

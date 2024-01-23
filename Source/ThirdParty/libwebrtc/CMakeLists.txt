@@ -140,51 +140,12 @@ set(webrtc_SOURCES
     Source/third_party/abseil-cpp/absl/synchronization/internal/waiter.cc
     Source/third_party/abseil-cpp/absl/synchronization/mutex.cc
     Source/third_party/abseil-cpp/absl/synchronization/notification.cc
-<<<<<<< ours
-    Source/third_party/abseil-cpp/absl/hash/internal/wyhash.cc
-    Source/third_party/abseil-cpp/absl/hash/internal/hash.cc
-    Source/third_party/abseil-cpp/absl/hash/internal/city.cc
-    Source/third_party/abseil-cpp/absl/debugging/symbolize.cc
-    Source/third_party/abseil-cpp/absl/debugging/failure_signal_handler.cc
-    Source/third_party/abseil-cpp/absl/debugging/leak_check_disable.cc
-    Source/third_party/abseil-cpp/absl/debugging/internal/examine_stack.cc
-    Source/third_party/abseil-cpp/absl/debugging/internal/vdso_support.cc
-    Source/third_party/abseil-cpp/absl/debugging/internal/stack_consumption.cc
-    Source/third_party/abseil-cpp/absl/debugging/internal/address_is_readable.cc
-    Source/third_party/abseil-cpp/absl/debugging/internal/elf_mem_image.cc
-    Source/third_party/abseil-cpp/absl/debugging/internal/demangle.cc
-    Source/third_party/abseil-cpp/absl/debugging/leak_check.cc
-    Source/third_party/abseil-cpp/absl/debugging/stacktrace.cc
-    Source/third_party/abseil-cpp/absl/status/status_payload_printer.cc
-    Source/third_party/abseil-cpp/absl/status/status.cc
-    Source/third_party/abseil-cpp/absl/status/statusor.cc
-||||||| base
-    Source/third_party/abseil-cpp/absl/hash/internal/wyhash.cc
-    Source/third_party/abseil-cpp/absl/hash/internal/hash.cc
-    Source/third_party/abseil-cpp/absl/hash/internal/print_hash_of.cc
-    Source/third_party/abseil-cpp/absl/hash/internal/city.cc
-    Source/third_party/abseil-cpp/absl/debugging/symbolize.cc
-    Source/third_party/abseil-cpp/absl/debugging/failure_signal_handler.cc
-    Source/third_party/abseil-cpp/absl/debugging/leak_check_disable.cc
-    Source/third_party/abseil-cpp/absl/debugging/internal/examine_stack.cc
-    Source/third_party/abseil-cpp/absl/debugging/internal/vdso_support.cc
-    Source/third_party/abseil-cpp/absl/debugging/internal/stack_consumption.cc
-    Source/third_party/abseil-cpp/absl/debugging/internal/address_is_readable.cc
-    Source/third_party/abseil-cpp/absl/debugging/internal/elf_mem_image.cc
-    Source/third_party/abseil-cpp/absl/debugging/internal/demangle.cc
-    Source/third_party/abseil-cpp/absl/debugging/leak_check.cc
-    Source/third_party/abseil-cpp/absl/debugging/stacktrace.cc
-    Source/third_party/abseil-cpp/absl/status/status_payload_printer.cc
-    Source/third_party/abseil-cpp/absl/status/status.cc
-    Source/third_party/abseil-cpp/absl/status/statusor.cc
-=======
     Source/third_party/abseil-cpp/absl/time/civil_time.cc
     Source/third_party/abseil-cpp/absl/time/clock.cc
     Source/third_party/abseil-cpp/absl/time/duration.cc
     Source/third_party/abseil-cpp/absl/time/format.cc
     Source/third_party/abseil-cpp/absl/time/internal/cctz/src/civil_time_detail.cc
     Source/third_party/abseil-cpp/absl/time/internal/cctz/src/time_zone_fixed.cc
->>>>>>> theirs
     Source/third_party/abseil-cpp/absl/time/internal/cctz/src/time_zone_format.cc
     Source/third_party/abseil-cpp/absl/time/internal/cctz/src/time_zone_if.cc
     Source/third_party/abseil-cpp/absl/time/internal/cctz/src/time_zone_impl.cc
@@ -195,74 +156,9 @@ set(webrtc_SOURCES
     Source/third_party/abseil-cpp/absl/time/internal/cctz/src/zone_info_source.cc
     Source/third_party/abseil-cpp/absl/time/internal/test_util.cc
     Source/third_party/abseil-cpp/absl/time/time.cc
-<<<<<<< ours
-    Source/third_party/abseil-cpp/absl/container/internal/raw_hash_set.cc
-    Source/third_party/abseil-cpp/absl/container/internal/hashtablez_sampler_force_weak_definition.cc
-    Source/third_party/abseil-cpp/absl/container/internal/hashtablez_sampler.cc
-    Source/third_party/abseil-cpp/absl/numeric/int128.cc
-    Source/third_party/abseil-cpp/absl/random/gaussian_distribution.cc
-    Source/third_party/abseil-cpp/absl/random/discrete_distribution.cc
-    Source/third_party/abseil-cpp/absl/random/seed_gen_exception.cc
-    Source/third_party/abseil-cpp/absl/random/internal/seed_material.cc
-    Source/third_party/abseil-cpp/absl/random/internal/randen_slow.cc
-    Source/third_party/abseil-cpp/absl/random/internal/chi_square.cc
-    Source/third_party/abseil-cpp/absl/random/internal/randen.cc
-    Source/third_party/abseil-cpp/absl/random/internal/randen_detect.cc
-    Source/third_party/abseil-cpp/absl/random/internal/randen_round_keys.cc
-    Source/third_party/abseil-cpp/absl/random/internal/randen_hwaes.cc
-    Source/third_party/abseil-cpp/absl/random/internal/pool_urbg.cc
-    Source/third_party/abseil-cpp/absl/random/seed_sequences.cc
-    Source/third_party/abseil-cpp/absl/base/internal/spinlock_wait.cc
-    Source/third_party/abseil-cpp/absl/base/internal/periodic_sampler.cc
-    Source/third_party/abseil-cpp/absl/base/internal/cycleclock.cc
-    Source/third_party/abseil-cpp/absl/base/internal/spinlock.cc
-    Source/third_party/abseil-cpp/absl/base/internal/unscaledcycleclock.cc
-    Source/third_party/abseil-cpp/absl/base/internal/scoped_set_env.cc
-    Source/third_party/abseil-cpp/absl/base/internal/sysinfo.cc
-    Source/third_party/abseil-cpp/absl/base/internal/raw_logging.cc
-    Source/third_party/abseil-cpp/absl/base/internal/throw_delegate.cc
-    Source/third_party/abseil-cpp/absl/base/internal/strerror.cc
-    Source/third_party/abseil-cpp/absl/base/internal/thread_identity.cc
-    Source/third_party/abseil-cpp/absl/base/internal/exponential_biased.cc
-    Source/third_party/abseil-cpp/absl/base/internal/low_level_alloc.cc
-    Source/third_party/abseil-cpp/absl/base/log_severity.cc
-||||||| base
-    Source/third_party/abseil-cpp/absl/container/internal/raw_hash_set.cc
-    Source/third_party/abseil-cpp/absl/container/internal/hashtablez_sampler_force_weak_definition.cc
-    Source/third_party/abseil-cpp/absl/container/internal/hashtablez_sampler.cc
-    Source/third_party/abseil-cpp/absl/numeric/int128.cc
-    Source/third_party/abseil-cpp/absl/random/gaussian_distribution.cc
-    Source/third_party/abseil-cpp/absl/random/discrete_distribution.cc
-    Source/third_party/abseil-cpp/absl/random/seed_gen_exception.cc
-    Source/third_party/abseil-cpp/absl/random/internal/gaussian_distribution_gentables.cc
-    Source/third_party/abseil-cpp/absl/random/internal/seed_material.cc
-    Source/third_party/abseil-cpp/absl/random/internal/randen_slow.cc
-    Source/third_party/abseil-cpp/absl/random/internal/chi_square.cc
-    Source/third_party/abseil-cpp/absl/random/internal/randen.cc
-    Source/third_party/abseil-cpp/absl/random/internal/randen_detect.cc
-    Source/third_party/abseil-cpp/absl/random/internal/randen_round_keys.cc
-    Source/third_party/abseil-cpp/absl/random/internal/randen_hwaes.cc
-    Source/third_party/abseil-cpp/absl/random/internal/pool_urbg.cc
-    Source/third_party/abseil-cpp/absl/random/seed_sequences.cc
-    Source/third_party/abseil-cpp/absl/base/internal/spinlock_wait.cc
-    Source/third_party/abseil-cpp/absl/base/internal/periodic_sampler.cc
-    Source/third_party/abseil-cpp/absl/base/internal/cycleclock.cc
-    Source/third_party/abseil-cpp/absl/base/internal/spinlock.cc
-    Source/third_party/abseil-cpp/absl/base/internal/unscaledcycleclock.cc
-    Source/third_party/abseil-cpp/absl/base/internal/scoped_set_env.cc
-    Source/third_party/abseil-cpp/absl/base/internal/sysinfo.cc
-    Source/third_party/abseil-cpp/absl/base/internal/raw_logging.cc
-    Source/third_party/abseil-cpp/absl/base/internal/throw_delegate.cc
-    Source/third_party/abseil-cpp/absl/base/internal/strerror.cc
-    Source/third_party/abseil-cpp/absl/base/internal/thread_identity.cc
-    Source/third_party/abseil-cpp/absl/base/internal/exponential_biased.cc
-    Source/third_party/abseil-cpp/absl/base/internal/low_level_alloc.cc
-    Source/third_party/abseil-cpp/absl/base/log_severity.cc
-=======
     Source/third_party/abseil-cpp/absl/types/bad_any_cast.cc
     Source/third_party/abseil-cpp/absl/types/bad_optional_access.cc
     Source/third_party/abseil-cpp/absl/types/bad_variant_access.cc
->>>>>>> theirs
     Source/third_party/boringssl/err_data.c
     Source/third_party/boringssl/src/crypto/asn1/a_bitstr.c
     Source/third_party/boringssl/src/crypto/asn1/a_bool.c
@@ -373,14 +269,6 @@ set(webrtc_SOURCES
     Source/third_party/boringssl/src/crypto/fipsmodule/aes/key_wrap.c
     Source/third_party/boringssl/src/crypto/fipsmodule/aes/mode_wrappers.c
     Source/third_party/boringssl/src/crypto/fipsmodule/bcm.c
-<<<<<<< ours
-||||||| base
-    Source/third_party/boringssl/src/crypto/fipsmodule/dh/check.c
-    Source/third_party/boringssl/src/crypto/fipsmodule/dh/dh.c
-    Source/third_party/boringssl/src/crypto/fipsmodule/ecdh/ecdh.c
-    Source/third_party/boringssl/src/crypto/fipsmodule/ec/p256.c
-    Source/third_party/boringssl/src/crypto/fipsmodule/rand/fork_detect.c
-=======
     Source/third_party/boringssl/src/crypto/fipsmodule/bn/add.c
     Source/third_party/boringssl/src/crypto/fipsmodule/bn/asm/x86_64-gcc.c
     Source/third_party/boringssl/src/crypto/fipsmodule/bn/bn.c
@@ -452,7 +340,6 @@ set(webrtc_SOURCES
     Source/third_party/boringssl/src/crypto/fipsmodule/sha/sha256.c
     Source/third_party/boringssl/src/crypto/fipsmodule/sha/sha512.c
     Source/third_party/boringssl/src/crypto/fipsmodule/tls/kdf.c
->>>>>>> theirs
     Source/third_party/boringssl/src/crypto/hkdf/hkdf.c
     Source/third_party/boringssl/src/crypto/hpke/hpke.c
     Source/third_party/boringssl/src/crypto/hrss/hrss.c
@@ -1422,15 +1309,6 @@ set(webrtc_SOURCES
     Source/webrtc/modules/audio_processing/residual_echo_detector.cc
     Source/webrtc/modules/audio_processing/rms_level.cc
     Source/webrtc/modules/audio_processing/splitting_filter.cc
-<<<<<<< ours
-    Source/webrtc/modules/audio_processing/test/conversational_speech/config.cc
-    Source/webrtc/modules/audio_processing/test/conversational_speech/timing.cc
-||||||| base
-    Source/webrtc/modules/audio_processing/test/conversational_speech/config.cc
-    Source/webrtc/modules/audio_processing/test/conversational_speech/timing.cc
-    Source/webrtc/modules/audio_processing/test/py_quality_assessment/quality_assessment/vad.cc
-=======
->>>>>>> theirs
     Source/webrtc/modules/audio_processing/three_band_filter_bank.cc
     Source/webrtc/modules/audio_processing/transient/click_annotate.cc
     Source/webrtc/modules/audio_processing/transient/file_utils.cc

@@ -292,29 +292,7 @@ std::unique_ptr<NetworkRTCProvider::Socket> NetworkRTCProvider::takeSocket(LibWe
     return socket;
 }
 
-<<<<<<< ours
-void NetworkRTCProvider::newConnection(Socket& serverSocket, std::unique_ptr<rtc::AsyncPacketSocket>&& newSocket)
-{
-    ASSERT(m_rtcNetworkThread.IsCurrent());
-    auto incomingSocketIdentifier = LibWebRTCSocketIdentifier::generate();
-    m_ipcConnection->send(Messages::LibWebRTCNetwork::SignalNewConnection(serverSocket.identifier(), incomingSocketIdentifier, RTCNetwork::SocketAddress(newSocket->GetRemoteAddress())), 0);
-    m_pendingIncomingSockets.add(incomingSocketIdentifier, WTFMove(newSocket));
-}
-
 void NetworkRTCProvider::dispatchToThread(Function<void()>&& callback)
-||||||| base
-void NetworkRTCProvider::newConnection(Socket& serverSocket, std::unique_ptr<rtc::AsyncPacketSocket>&& newSocket)
-{
-    ASSERT(m_rtcNetworkThread.IsCurrent());
-    auto incomingSocketIdentifier = LibWebRTCSocketIdentifier::generate();
-    m_ipcConnection->send(Messages::LibWebRTCNetwork::SignalNewConnection(serverSocket.identifier(), incomingSocketIdentifier, RTCNetwork::SocketAddress(newSocket->GetRemoteAddress())), 0);
-    m_pendingIncomingSockets.add(incomingSocketIdentifier, WTFMove(newSocket));
-}
-
-void NetworkRTCProvider::dispatch(Function<void()>&& callback)
-=======
-void NetworkRTCProvider::dispatch(Function<void()>&& callback)
->>>>>>> theirs
 {
     callOnRTCNetworkThread((WTFMove(callback)));
 }

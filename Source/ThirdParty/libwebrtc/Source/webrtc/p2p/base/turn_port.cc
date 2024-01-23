@@ -250,20 +250,7 @@ TurnPort::TurnPort(rtc::Thread* thread,
       state_(STATE_CONNECTING),
       server_priority_(server_priority),
       allocate_mismatch_retries_(0),
-<<<<<<< ours
-      turn_customizer_(customizer) {
-  request_manager_.SignalSendPacket.connect(this, &TurnPort::OnSendStunPacket);
-  request_manager_.set_origin(origin);
-  send_ipv6_request = false;
-}
-||||||| base
-      turn_customizer_(customizer) {
-  request_manager_.SignalSendPacket.connect(this, &TurnPort::OnSendStunPacket);
-  request_manager_.set_origin(origin);
-}
-=======
       turn_customizer_(customizer) {}
->>>>>>> theirs
 
 TurnPort::TurnPort(rtc::Thread* thread,
                    rtc::PacketSocketFactory* factory,
@@ -306,20 +293,7 @@ TurnPort::TurnPort(rtc::Thread* thread,
       state_(STATE_CONNECTING),
       server_priority_(server_priority),
       allocate_mismatch_retries_(0),
-<<<<<<< ours
-      turn_customizer_(customizer) {
-  request_manager_.SignalSendPacket.connect(this, &TurnPort::OnSendStunPacket);
-  request_manager_.set_origin(origin);
-  send_ipv6_request = false;
-}
-||||||| base
-      turn_customizer_(customizer) {
-  request_manager_.SignalSendPacket.connect(this, &TurnPort::OnSendStunPacket);
-  request_manager_.set_origin(origin);
-}
-=======
       turn_customizer_(customizer) {}
->>>>>>> theirs
 
 TurnPort::~TurnPort() {
   // TODO(juberti): Should this even be necessary?
@@ -919,8 +893,7 @@ void TurnPort::OnAllocateSuccess(const rtc::SocketAddress& address,
              ProtoToString(server_address_.proto),  // The first hop protocol.
              "",  // TCP candidate type, empty for turn candidates.
              RELAY_PORT_TYPE, GetRelayPreference(server_address_.proto),
-<<<<<<< ours
-             server_priority_, ReconstructedServerUrl(false /* use_hostname */), send_ipv6_request);
+             server_priority_, ReconstructedServerUrl(), send_ipv6_request);
 
   // If we have received a allocate success, try to do the same to do a V6 allocation
   if (send_ipv6_request == false) {
@@ -931,12 +904,6 @@ void TurnPort::OnAllocateSuccess(const rtc::SocketAddress& address,
     this->hash_.clear();
     PrepareAddress();
   }
-||||||| base
-             server_priority_, ReconstructedServerUrl(false /* use_hostname */),
-             true);
-=======
-             server_priority_, ReconstructedServerUrl(), true);
->>>>>>> theirs
 }
 
 void TurnPort::OnAllocateError(int error_code, absl::string_view reason) {
@@ -1418,32 +1385,16 @@ void TurnPort::MaybeAddTurnLoggingId(StunMessage* msg) {
 }
 
 TurnAllocateRequest::TurnAllocateRequest(TurnPort* port)
-<<<<<<< ours
-    : StunRequest(new TurnMessage()), port_(port), ipv6_preference(false) {}
-
-void TurnAllocateRequest::SetRequestPreference(bool ipv6)
-{
-   ipv6_preference = ipv6;
-}
-
-void TurnAllocateRequest::Prepare(StunMessage* request) {
-||||||| base
-    : StunRequest(new TurnMessage()), port_(port) {}
-
-void TurnAllocateRequest::Prepare(StunMessage* request) {
-=======
     : StunRequest(port->request_manager(),
                   std::make_unique<TurnMessage>(TURN_ALLOCATE_REQUEST)),
-      port_(port) {
+      port_(port), ipv6_preference(false) {
   StunMessage* message = mutable_msg();
->>>>>>> theirs
   // Create the request as indicated in RFC 5766, Section 6.1.
   RTC_DCHECK_EQ(message->type(), TURN_ALLOCATE_REQUEST);
   auto transport_attr =
       StunAttribute::CreateUInt32(STUN_ATTR_REQUESTED_TRANSPORT);
   transport_attr->SetValue(IPPROTO_UDP << 24);
-<<<<<<< ours
-  request->AddAttribute(std::move(transport_attr));
+  message->AddAttribute(std::move(transport_attr));
 
   // Below patch is to add the support for ipv6 relay candidate
   // The REQUESTED-ADDRESS-FAMILY attribute is used by clients to request
@@ -1459,18 +1410,18 @@ void TurnAllocateRequest::Prepare(StunMessage* request) {
   else {
     family_attr->SetValue((STUN_ATTR_IPV4_FAMILY) << 24);
   }
-  request->AddAttribute(std::move(family_attr));
+  message->AddAttribute(std::move(family_attr));
 
-||||||| base
-  request->AddAttribute(std::move(transport_attr));
-=======
-  message->AddAttribute(std::move(transport_attr));
->>>>>>> theirs
   if (!port_->hash().empty()) {
     port_->AddRequestAuthInfo(message);
   }
   port_->MaybeAddTurnLoggingId(message);
   port_->TurnCustomizerMaybeModifyOutgoingStunMessage(message);
+}
+
+void TurnAllocateRequest::SetRequestPreference(bool ipv6)
+{
+   ipv6_preference = ipv6;
 }
 
 void TurnAllocateRequest::OnSent() {
