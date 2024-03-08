@@ -231,15 +231,6 @@
 	    hash="sha256:3b19e8a9e1e19474756a7069db23b90ca9b8ebb438448c6063b4a7fc89b7c8b2"/>
   </autotools>
 
-  <meson id="graphene">
-    <branch repo="github.com"
-            module="ebassi/graphene.git"
-            tag="1.6.0"/>
-    <dependencies>
-      <dep package="glib"/>
-    </dependencies>
-  </meson>
-
   <cmake id="openjpeg">
     <branch repo="github-tarball"
             module="uclouvain/openjpeg/archive/v${version}.tar.gz"
