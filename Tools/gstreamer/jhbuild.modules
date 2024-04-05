@@ -67,6 +67,16 @@
     </branch>
   </autotools>
 
+  <meson id="graphene">
+    <pkg-config>graphene-1.0.pc</pkg-config>
+    <branch repo="github.com"
+            module="ebassi/graphene.git"
+            tag="1.10.6"/>
+    <dependencies>
+      <dep package="glib"/>
+    </dependencies>
+  </meson>
+
   <!-- GStreamer plugins have been moved with the base code to a monorepo.
   Is not longer needed to fetch different tarballs when using the main repository.
   See: https://gstreamer.freedesktop.org/documentation/frequently-asked-questions/mono-repository.html -->

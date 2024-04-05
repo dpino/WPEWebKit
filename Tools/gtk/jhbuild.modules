@@ -181,15 +181,6 @@
             hash="sha256:455eb90c09ed1b71f95f3ebfe1c904c206727e0eeb34fc94e5aaf944663a820c"/>
   </autotools>
 
-  <meson id="graphene">
-    <branch repo="github.com"
-            module="ebassi/graphene.git"
-            tag="1.6.0"/>
-    <dependencies>
-      <dep package="glib"/>
-    </dependencies>
-  </meson>
-
   <autotools id="librsvg" autogen-sh="configure"
              autogenargs="--disable-introspection --enable-pixbuf-loader --disable-gtk-theme">
     <if condition-set="macos">
