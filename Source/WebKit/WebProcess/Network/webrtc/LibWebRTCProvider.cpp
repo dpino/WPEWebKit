@@ -73,6 +73,12 @@ LibWebRTCProvider::LibWebRTCProvider(WebPage& webPage)
 #else
     m_supportsMDNS = true;
 #endif
+
+    auto* page = webPage.corePage();
+    if (!page || !page->settings().webRTCUDPPortRange())
+        return;
+
+    setPortAllocatorRange(page->settings().webRTCUDPPortRange());
 }
 
 rtc::scoped_refptr<webrtc::PeerConnectionInterface> LibWebRTCProvider::createPeerConnection(ScriptExecutionContextIdentifier identifier, webrtc::PeerConnectionObserver& observer, rtc::PacketSocketFactory* socketFactory, webrtc::PeerConnectionInterface::RTCConfiguration&& configuration)
