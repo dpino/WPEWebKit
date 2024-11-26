@@ -1587,6 +1587,21 @@ bool RenderFlexibleBox::resolveFlexibleLengths(FlexSign flexSign, Vector<FlexIte
             childSize += LayoutUnit::fromFloatRound(extraSpace);
 
         LayoutUnit adjustedChildSize = flexItem.constrainSizeByMinMax(childSize);
+
+        // Adjust flex item size with the specified container max size.
+        auto maximumSize = isHorizontalFlow() ? style().maxWidth() : style().maxHeight();
+        const auto minimumSize = isHorizontalFlow() ? style().minWidth() : style().minHeight();
+        if (maximumSize.isFixed()) {
+            // The fixed min height/width should be considered as maximum size if it is bigger than fixed max height/width.
+            if (minimumSize.isFixed() && minimumSize.value() > maximumSize.value())
+                maximumSize = minimumSize;
+
+            // If the size of flex item adjusted to its min/max size is bigger than the maximum size of the container, then
+            // we use flext item size calculated before adjusting the min/max size of the flex item.
+            if (adjustedChildSize > LayoutUnit { maximumSize.value() })
+                adjustedChildSize = std::max(LayoutUnit { }, childSize);
+        }
+
         ASSERT(adjustedChildSize >= 0);
         flexItem.flexedContentSize = adjustedChildSize;
         usedFreeSpace += adjustedChildSize - flexItem.flexBaseContentSize;
